@@ -84,11 +84,14 @@ export function I18nProvider(props: any) {
     };
 
     return (
-  
-            <I18nContext.Provider
+        <Suspense>
+             <I18nContext.Provider
                 value={{ language, changeLanguage, t, specificTranslation }}
             >
                 {props.children}
             </I18nContext.Provider>
+
+        </Suspense>
+           
    )
 }

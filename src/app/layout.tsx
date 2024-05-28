@@ -19,8 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <I18nProvider>
+     
         <body className={`${inter.className}`}>
+        <Suspense fallback={<div>Loading...</div>}>
+      <I18nProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -29,8 +31,10 @@ export default function RootLayout({
           >
             {children}
           </ThemeProvider>
+          </I18nProvider>
+      </Suspense>
         </body>
-      </I18nProvider>
+    
 
     </html>
   );

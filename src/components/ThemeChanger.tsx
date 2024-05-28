@@ -10,20 +10,19 @@ import { useTheme } from "next-themes"
 export function ThemeChanger() {
 
   const [mounted,setMounted] = useState(false)
-  const {theme, setTheme,resolvedTheme } = useTheme()
+  const {setTheme,resolvedTheme } = useTheme()
 
-  console.log(theme,"them",resolvedTheme)
   useEffect(()=> setMounted(true),[])
 
   if(!mounted){
-    return <MdOutlineWbSunny onClick={() => setTheme("light")}  />
+    return "loading image"
   }
 
   if(resolvedTheme === "dark"){
-    return  <MdOutlineWbSunny onClick={() => setTheme("light")}  />
+    return  <MdOutlineWbSunny onClick={() => setTheme("light")} className="cursor-pointer" />
   }
   if(resolvedTheme === "light"){
-    return  <FaMoon onClick={() => setTheme("dark")}  />
+    return  <FaMoon onClick={() => setTheme("dark")} className="cursor-pointer" />
   }
 
 }
